@@ -5,6 +5,7 @@ const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
 const app = express();
 const socket = require("socket.io");
+const port = 5000
 // require("dotenv").config();
 
 app.use(cors());
@@ -25,7 +26,7 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen("5000", () =>
+const server = app.listen(port, () =>
   console.log(`Server started on 5000`)
 );
 const io = socket(server, {
